@@ -1,0 +1,57 @@
+/*//DateTime.Now - salva horário de ultimo login
+
+String usuario = "Eduardo.Tomazela";
+DateTime ultimoLogin = DateTime.Now;
+
+Console.WriteLine($"Usuário: {usuario}  --- Ultimo login: {ultimoLogin}");
+
+
+//TimeOnly - Horário de funcionamento restaurante
+TimeOnly abertura = new TimeOnly(10, 30);
+TimeOnly fechamento = new TimeOnly(16, 00);
+
+DateTime agora =  DateTime.Now;
+TimeOnly somenteHorario = TimeOnly.FromDateTime( agora );
+
+bool aberto = (somenteHorario >= abertura) && (somenteHorario < fechamento);
+if (aberto)
+{
+    Console.WriteLine($"O restaurante está aberto e recebeu seu pedido no seguinte horário: {somenteHorario}");
+}
+else {
+    Console.WriteLine($"O restaurante está fechado! \n Horário de funcionamento do restaurante: \n Abertura: {abertura} \n Fechamento: {fechamento}");
+}
+
+// Criando um loop com do while para menu de pedidos:
+*/
+using System.ComponentModel.DataAnnotations;
+
+String teste;
+int teste2;
+String[] opcoes = { "Multi", "Soma", "Sub", "Div" };
+do
+{
+    for (int opco = 0; opco < opcoes.Length; opco++)
+    {
+        Console.WriteLine($"{opco} - {opcoes[opco]}");
+    }
+    Console.Write("Selecione uma das opções \n -->");
+    teste = Console.ReadLine();
+    if (int.TryParse(teste, out teste2))
+    {
+        switch (teste2)
+        {
+            case 0:
+                Console.WriteLine($"Input do usuário 0 -- convertido: {teste2}");
+                break;
+            case 1:
+                Console.WriteLine($"Input do usuário 0 -- convertido: {teste2}");
+                break;
+
+        }
+    }
+    else {
+        Console.WriteLine("Para acessar uma das funcionalidades é necessário digitar o ID referente ao módulo.");    
+    }
+
+} while (teste2 != 2);
