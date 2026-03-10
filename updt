@@ -26,8 +26,8 @@ else {
 */
 using System.ComponentModel.DataAnnotations;
 
-String teste;
-int teste2;
+String MenuSelecionado;
+int MenuSelecionadoInt;
 String[] opcoes = { "Adicao", "Subtracao", "Multiplicacao", "Divisao", "Sair" };
 do
 {
@@ -36,14 +36,14 @@ do
         Console.WriteLine($"{opco + 1} - {opcoes[opco]}");
     }
     Console.Write("Selecione uma das opções \n -->");
-    teste = Console.ReadLine();
-    if (int.TryParse(teste, out teste2))
+    MenuSelecionado = Console.ReadLine();
+    if (int.TryParse(MenuSelecionado, out MenuSelecionadoInt))
     {
         Console.Write("Digite o primeiro numero \n -->");
         num1 = Console.ReadLine();
         Console.Write("Digite o segundo numero \n -->");
         num2 = Console.ReadLine();
-        switch (teste2)
+        switch (MenuSelecionadoInt)
         {
             case 0:
                 Console.Write($"O resultado da Soma {num1} + {num2} é igual a {num1 + num2}")
@@ -72,4 +72,4 @@ do
         Console.WriteLine("Para acessar uma das funcionalidades é necessário digitar o ID referente ao módulo.");    
     }
 
-} while (teste2 != 4);
+} while (MenuSelecionadoInt != 4);
