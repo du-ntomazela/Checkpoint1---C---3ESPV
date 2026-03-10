@@ -39,13 +39,23 @@ do
     teste = Console.ReadLine();
     if (int.TryParse(teste, out teste2))
     {
+        Console.Write("Digite o primeiro numero \n -->");
+        num1 = Console.ReadLine();
+        Console.Write("Digite o segundo numero \n -->");
+        num2 = Console.ReadLine();
         switch (teste2)
         {
             case 0:
-                Console.WriteLine($"Input do usuário 0 -- convertido: {teste2}");
+                Console.Write($"O resultado da Multiplicação {num1} X {num2} é igual a {num1 * num2}")
                 break;
             case 1:
-                Console.WriteLine($"Input do usuário 0 -- convertido: {teste2}");
+                Console.Write($"O resultado da Soma {num1} + {num2} é igual a {num1 + num2}")
+                break;
+            case 2:
+                Console.Write($"O resultado da Subtração {num1} - {num2} é igual a {num1 - num2}")
+                break;
+            case 3:
+                Console.Write($"O resultado da Divisão {num1} / {num2} é igual a {num1 / num2}")
                 break;
 
         }
@@ -54,4 +64,4 @@ do
         Console.WriteLine("Para acessar uma das funcionalidades é necessário digitar o ID referente ao módulo.");    
     }
 
-} while (teste2 != 2);
+} while (teste2 != 4);
