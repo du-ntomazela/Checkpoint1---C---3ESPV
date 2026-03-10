@@ -28,12 +28,12 @@ using System.ComponentModel.DataAnnotations;
 
 String teste;
 int teste2;
-String[] opcoes = { "Multi", "Soma", "Sub", "Div" };
+String[] opcoes = { "Adicao", "Subtracao", "Multiplicacao", "Divisao", "Sair" };
 do
 {
     for (int opco = 0; opco < opcoes.Length; opco++)
     {
-        Console.WriteLine($"{opco} - {opcoes[opco]}");
+        Console.WriteLine($"{opco + 1} - {opcoes[opco]}");
     }
     Console.Write("Selecione uma das opções \n -->");
     teste = Console.ReadLine();
@@ -46,17 +46,25 @@ do
         switch (teste2)
         {
             case 0:
-                Console.Write($"O resultado da Multiplicação {num1} X {num2} é igual a {num1 * num2}")
-                break;
-            case 1:
                 Console.Write($"O resultado da Soma {num1} + {num2} é igual a {num1 + num2}")
                 break;
-            case 2:
+                
+            case 1:
                 Console.Write($"O resultado da Subtração {num1} - {num2} é igual a {num1 - num2}")
                 break;
-            case 3:
-                Console.Write($"O resultado da Divisão {num1} / {num2} é igual a {num1 / num2}")
+                
+            case 2:
+                Console.Write($"O resultado da Multiplicação {num1} X {num2} é igual a {num1 * num2}")
                 break;
+                
+            case 3:
+                if(num2 == 0){
+                    Console.WirteLine(Não é possivel realizar divisões por 0! por favor informe o segundo numero sendo diferente de 0! )
+                }else{
+                    Console.Write($"O resultado da Divisão {num1} / {num2} é igual a {num1 / num2}")
+                    break;
+                }
+                
 
         }
     }
