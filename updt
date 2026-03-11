@@ -1,36 +1,4 @@
-/*//DateTime.Now - salva horário de ultimo login
-
-String usuario = "Eduardo.Tomazela";
-DateTime ultimoLogin = DateTime.Now;
-
-Console.WriteLine($"Usuário: {usuario}  --- Ultimo login: {ultimoLogin}");
-
-
-//TimeOnly - Horário de funcionamento restaurante
-TimeOnly abertura = new TimeOnly(10, 30);
-TimeOnly fechamento = new TimeOnly(16, 00);
-
-DateTime agora =  DateTime.Now;
-TimeOnly somenteHorario = TimeOnly.FromDateTime( agora );
-
-bool aberto = (somenteHorario >= abertura) && (somenteHorario < fechamento);
-if (aberto)
-{
-    Console.WriteLine($"O restaurante está aberto e recebeu seu pedido no seguinte horário: {somenteHorario}");
-}
-else {
-    Console.WriteLine($"O restaurante está fechado! \n Horário de funcionamento do restaurante: \n Abertura: {abertura} \n Fechamento: {fechamento}");
-}
-
-// Criando um loop com do while para menu de pedidos:
-*/
-using System.ComponentModel.DataAnnotations;
-
-String MenuSelecionado;
-int MenuSelecionadoInt;
-String[] opcoes = { "Adicao", "Subtracao", "Multiplicacao", "Divisao", "Sair" };
-do
-{
+    Console.Write("\n------------- MENU ----------- \n");
     for (int opco = 0; opco < opcoes.Length; opco++)
     {
         Console.WriteLine($"{opco + 1} - {opcoes[opco]}");
@@ -39,37 +7,60 @@ do
     MenuSelecionado = Console.ReadLine();
     if (int.TryParse(MenuSelecionado, out MenuSelecionadoInt))
     {
-        Console.Write("Digite o primeiro numero \n -->");
-        num1 = Console.ReadLine();
-        Console.Write("Digite o segundo numero \n -->");
-        num2 = Console.ReadLine();
-        switch (MenuSelecionadoInt)
-        {
-            case 0:
-                Console.Write($"O resultado da Soma {num1} + {num2} é igual a {num1 + num2}")
-                break;
-                
-            case 1:
-                Console.Write($"O resultado da Subtração {num1} - {num2} é igual a {num1 - num2}")
-                break;
-                
-            case 2:
-                Console.Write($"O resultado da Multiplicação {num1} X {num2} é igual a {num1 * num2}")
-                break;
-                
-            case 3:
-                if(num2 == 0){
-                    Console.WirteLine(Não é possivel realizar divisões por 0! por favor informe o segundo numero sendo diferente de 0! )
-                }else{
-                    Console.Write($"O resultado da Divisão {num1} / {num2} é igual a {num1 / num2}")
-                    break;
-                }
-                
+        if ((MenuSelecionadoInt > 0) & (MenuSelecionadoInt <= opcoes.Length)) {
+            if (MenuSelecionadoInt != (opcoes.Length)) {
+                Console.Write("Digite o primeiro numero \n -->");
+                num1 = Console.ReadLine();
+                Console.Write("Digite o segundo numero \n -->");
+                num2 = Console.ReadLine();
+                if ((float.TryParse(num1, out num1_numeric) & (float.TryParse(num2, out num2_numeric)))) {
+                    switch (MenuSelecionadoInt)
+                    {
+                        case 1:
+                            Console.Write($"O resultado da Soma {num1_numeric} + {num2_numeric} é igual a {num1_numeric + num2_numeric}");
+                            break;
 
+                        case 2:
+                            Console.Write($"O resultado da Subtração {num1_numeric} - {num2_numeric} é igual a {num1_numeric - num2_numeric}");
+                            break;
+
+                        case 3:
+                            Console.Write($"O resultado da Multiplicação {num1_numeric} X {num2_numeric} é igual a {num1_numeric * num2_numeric}");
+                            break;
+
+                        case 4:
+                            if (num2_numeric == 0)
+                            {
+                                Console.WriteLine("Não é possivel realizar divisões por 0! por favor informe o segundo numero sendo diferente de 0!");
+                                    }
+                            else
+                            {
+                                Console.Write($"O resultado da Divisão {num1_numeric} / {num2_numeric} é igual a {num1_numeric / num2_numeric}");
+
+                            }
+                            break;
+
+                    } 
+                }
+                else
+                {
+                    Console.WriteLine("Ambos os valores digitados devem ser numeros (em caso de decimais utilizar o marcador de casa decimal '.')");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Saindo da calculadora");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Digite um id entre 1 e {opcoes.Length}!");
         }
     }
-    else {
-        Console.WriteLine("Para acessar uma das funcionalidades é necessário digitar o ID referente ao módulo.");    
+    else
+    {
+        Console.WriteLine("Para acessar uma das funcionalidades é necessário digitar o ID referente ao módulo.");
     }
 
-} while (MenuSelecionadoInt != 4);
+} while (MenuSelecionadoInt != 5);
