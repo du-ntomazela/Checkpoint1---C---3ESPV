@@ -1,3 +1,21 @@
+
+
+string MenuSelecionado;
+int MenuSelecionadoInt;
+string[] opcoes = { "Adicao", "Subtracao", "Multiplicacao", "Divisao", "Sair" };
+string num1;
+string num2;
+
+
+float num1_numeric;
+float num2_numeric;
+
+
+Console.Write("\n------------- CALCULADORA ----------- \n");
+
+
+do
+{
     Console.Write("\n------------- MENU ----------- \n");
     for (int opco = 0; opco < opcoes.Length; opco++)
     {
