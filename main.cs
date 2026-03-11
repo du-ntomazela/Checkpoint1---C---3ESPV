@@ -2,13 +2,13 @@
 
 string MenuSelecionado;
 int MenuSelecionadoInt;
-string[] opcoes = { "Adicao", "Subtracao", "Multiplicacao", "Divisao", "Sair" };
-string num1;
-string num2;
+string[] Opcoes = { "Adicao", "Subtracao", "Multiplicacao", "Divisao", "Sair" };
+string Num1;
+string Num2;
 
 
-float num1_numeric;
-float num2_numeric;
+float Num1Numeric;
+float Num2Numeric;
 
 
 Console.Write("\n------------- CALCULADORA ----------- \n");
@@ -17,43 +17,43 @@ Console.Write("\n------------- CALCULADORA ----------- \n");
 do
 {
     Console.Write("\n------------- MENU ----------- \n");
-    for (int opco = 0; opco < opcoes.Length; opco++)
+    for (int Opco = 0; Opco < Opcoes.Length; Opco++)
     {
-        Console.WriteLine($"{opco + 1} - {opcoes[opco]}");
+        Console.WriteLine($"{Opco + 1} - {Opcoes[Opco]}");
     }
     Console.Write("Selecione uma das opções \n -->");
     MenuSelecionado = Console.ReadLine();
     if (int.TryParse(MenuSelecionado, out MenuSelecionadoInt))
     {
-        if ((MenuSelecionadoInt > 0) & (MenuSelecionadoInt <= opcoes.Length)) {
-            if (MenuSelecionadoInt != (opcoes.Length)) {
+        if ((MenuSelecionadoInt > 0) & (MenuSelecionadoInt <= Opcoes.Length)) {
+            if (MenuSelecionadoInt != (Opcoes.Length)) {
                 Console.Write("Digite o primeiro numero \n -->");
-                num1 = Console.ReadLine();
+                Num1 = Console.ReadLine();
                 Console.Write("Digite o segundo numero \n -->");
-                num2 = Console.ReadLine();
-                if ((float.TryParse(num1, out num1_numeric) & (float.TryParse(num2, out num2_numeric)))) {
+                Num2 = Console.ReadLine();
+                if ((float.TryParse(Num1, out Num1Numeric) & (float.TryParse(Num2, out Num2Numeric)))) {
                     switch (MenuSelecionadoInt)
                     {
                         case 1:
-                            Console.Write($"O resultado da Soma {num1_numeric} + {num2_numeric} é igual a {num1_numeric + num2_numeric}");
+                            Console.Write($"O resultado da Soma {Num1Numeric} + {Num2Numeric} é igual a {Num1Numeric + Num2Numeric}");
                             break;
 
                         case 2:
-                            Console.Write($"O resultado da Subtração {num1_numeric} - {num2_numeric} é igual a {num1_numeric - num2_numeric}");
+                            Console.Write($"O resultado da Subtração {Num1Numeric} - {Num2Numeric} é igual a {Num1Numeric - Num2Numeric}");
                             break;
 
                         case 3:
-                            Console.Write($"O resultado da Multiplicação {num1_numeric} X {num2_numeric} é igual a {num1_numeric * num2_numeric}");
+                            Console.Write($"O resultado da Multiplicação {Num1Numeric} X {Num2Numeric} é igual a {Num1Numeric * Num2Numeric}");
                             break;
 
                         case 4:
-                            if (num2_numeric == 0)
+                            if (Num2Numeric == 0)
                             {
                                 Console.WriteLine("Não é possivel realizar divisões por 0! por favor informe o segundo numero sendo diferente de 0!");
                                     }
                             else
                             {
-                                Console.Write($"O resultado da Divisão {num1_numeric} / {num2_numeric} é igual a {num1_numeric / num2_numeric}");
+                                Console.Write($"O resultado da Divisão {Num1Numeric} / {Num2Numeric} é igual a {Num1Numeric / Num2Numeric}");
 
                             }
                             break;
@@ -73,7 +73,7 @@ do
         }
         else
         {
-            Console.WriteLine($"Digite um id entre 1 e {opcoes.Length}!");
+            Console.WriteLine($"Digite um id entre 1 e {Opcoes.Length}!");
         }
     }
     else
